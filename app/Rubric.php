@@ -13,8 +13,13 @@ class Rubric extends Model
         parent::boot();
 
         static::creating(function ($rubric) {
-            $rubric->translit = Str::slug($rubric->name_rus);
+            $rubric->translit = Str::slug($rubric->name_ru);
         });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'translit';
     }
 
 
