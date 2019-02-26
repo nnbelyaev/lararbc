@@ -148,6 +148,7 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
             'Doctrine\\Common\\Inflector\\' => 26,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
+            'Dimsav\\Translatable\\' => 20,
             'DeepCopy\\' => 9,
         ),
         'C' => 
@@ -410,6 +411,10 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
+        'Dimsav\\Translatable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dimsav/laravel-translatable/src/Translatable',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -519,10 +524,14 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
+        'App\\Providers\\DatabaseServiceProvider' => __DIR__ . '/../..' . '/app/Providers/DatabaseServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Providers\\ViewComposerServiceProvider' => __DIR__ . '/../..' . '/app/Providers/ViewComposerServiceProvider.php',
+        'App\\Repositories\\CachingRubricRepository' => __DIR__ . '/../..' . '/app/Repositories/CachingRubricRepository.php',
+        'App\\Repositories\\DbRubricRepository' => __DIR__ . '/../..' . '/app/Repositories/DbRubricRepository.php',
+        'App\\Repositories\\RubricRepository' => __DIR__ . '/../..' . '/app/Repositories/RubricRepository.php',
         'App\\Rubric' => __DIR__ . '/../..' . '/app/Rubric.php',
+        'App\\RubricTranslation' => __DIR__ . '/../..' . '/app/RubricTranslation.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Barryvdh\\LaravelIdeHelper\\Alias' => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src/Alias.php',
         'Barryvdh\\LaravelIdeHelper\\Console\\EloquentCommand' => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src/Console/EloquentCommand.php',
@@ -859,6 +868,9 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Dimsav\\Translatable\\Exception\\LocalesNotDefinedException' => __DIR__ . '/..' . '/dimsav/laravel-translatable/src/Translatable/Exception/LocalesNotDefinedException.php',
+        'Dimsav\\Translatable\\Translatable' => __DIR__ . '/..' . '/dimsav/laravel-translatable/src/Translatable/Translatable.php',
+        'Dimsav\\Translatable\\TranslatableServiceProvider' => __DIR__ . '/..' . '/dimsav/laravel-translatable/src/Translatable/TranslatableServiceProvider.php',
         'Doctrine\\Common\\Cache\\ApcCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ApcCache.php',
         'Doctrine\\Common\\Cache\\ApcuCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ApcuCache.php',
         'Doctrine\\Common\\Cache\\ArrayCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ArrayCache.php',

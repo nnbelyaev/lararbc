@@ -96,7 +96,7 @@
 
         <ul>
             @foreach($rubricsDict as $rubric)
-                <li><a href="{{ route('rubric', ['rubric' => $rubric->translit])  }}">{{ $lang }} - {{ $rubric->{'name_'.$lang} }}</a></li>
+                <li><a href="{{ route('rubric', ['rubric' => $rubric->translit])  }}">{{ $lang }} - {{ $rubric->name }}</a></li>
             @endforeach
         </ul>
     </div>

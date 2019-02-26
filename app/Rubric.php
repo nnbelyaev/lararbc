@@ -7,13 +7,16 @@ use Illuminate\Support\Str;
 
 class Rubric extends Model
 {
-    protected $guarded = [];
+    use \Dimsav\Translatable\Translatable;
+
+    public $translatedAttributes = ['name','h1','title','keywords','description'];
+    protected $fillable = ['status','category','google_news','banner_zone','subdomain','order'];
 
     public static function boot() {
         parent::boot();
 
         static::creating(function ($rubric) {
-            $rubric->translit = Str::slug($rubric->name_ru);
+            $rubric->translit = Str::slug($rubric->name);
         });
     }
 
@@ -21,6 +24,4 @@ class Rubric extends Model
     {
         return 'translit';
     }
-
-
 }

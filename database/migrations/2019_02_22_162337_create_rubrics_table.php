@@ -18,21 +18,24 @@ class CreateRubricsTable extends Migration
             $table->enum('status', ['normal', 'inactive', 'deleted'])->default('normal');
             $table->enum('category', ['news', 'styler', 'afisha', 'lite', 'all'])->default('news');
             $table->string('translit', 196)->unique();
-            $table->string('name_ru', 255)->default('');
-            $table->string('name_ua', 255)->default('');
-            $table->string('h1_ru', 255)->default('');
-            $table->string('h1_ua', 255)->default('');
-            $table->string('seo_title_ru', 255)->default('');
-            $table->string('seo_title_ua', 255)->default('');
-            $table->string('seo_key_ru', 255)->default('');
-            $table->string('seo_key_ua', 255)->default('');
-            $table->string('seo_descr_ru', 255)->default('');
-            $table->string('seo_descr_ua', 255)->default('');
             $table->string('google_news', 255)->default('');
             $table->enum('banner_zone', ['other', 'business'])->default('other');
             $table->boolean('subdomain')->default(false);
             $table->unsignedInteger('order')->default(100);
             $table->timestamps();
+        });
+
+        Schema::create('rubric_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('rubric_id');
+            $table->char('locale', 2)->index();
+            $table->string('name', 255)->default('');
+            $table->string('h1', 255)->default('');
+            $table->string('title', 255)->default('');
+            $table->string('keywords', 255)->default('');
+            $table->string('description', 255)->default('');
+            $table->unique(['rubric_id','locale']);
+            $table->foreign('rubric_id')->references('id')->on('rubrics')->onDelete('cascade');
         });
     }
 
@@ -43,6 +46,7 @@ class CreateRubricsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('rubric_translations');
         Schema::dropIfExists('rubrics');
     }
 }

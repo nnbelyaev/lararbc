@@ -9,7 +9,8 @@ class IndexController extends Controller
 {
     public function index() {
 
-        $rubrics = app()->get('RubricRepository')->getRubricDict();
+        $cache = new \Memcached();
+        $cache->addServer('localhost', '11211');
 
         return view('main');
     }
