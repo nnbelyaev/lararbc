@@ -9,8 +9,7 @@ class IndexController extends Controller
 {
     public function index() {
 
-        //$rubrics = Rubric::all()->keyBy('translit');
-        //return $rubrics;
+        $rubrics = app()->get('RubricRepository')->getRubricDict();
 
         return view('main');
     }

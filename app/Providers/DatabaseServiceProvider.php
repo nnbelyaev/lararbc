@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-use App\Rubric;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\DbRubricRepository;
+use App\Repositories\CachingRubricRepository;
+use Illuminate\Database\Eloquent;
 
-class ViewComposerServiceProvider extends ServiceProvider
+class DatabaseServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,7 +16,12 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('RubricRepository', function () {
+            return new CachingRubricRepository(
+                new DbRubricRepository,
+                $this->app['cache.store']
+            );
+        });
     }
 
     /**
@@ -36,6 +43,6 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
     }
     public function getRubricsDict() {
-        return Rubric::all();
+        return $this->app->get('RubricRepository')->getRubricDict();
     }
 }
