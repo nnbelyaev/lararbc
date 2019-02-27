@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 interface PublicationRepository {
 
-    public function getNewsTopnews();
+    public function getNewsTopnews(int $list_id);
 
 }
 

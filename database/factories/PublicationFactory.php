@@ -7,7 +7,7 @@ $factory->define(App\Publication::class, function (Faker $faker) {
     return [
         'type' => $faker->randomElement(['news','analytics','interview','opinion','gallery','video','digests','anons','curious','card','test','poll','afisha']),
         'office' => $faker->randomElement(['news','daily','styler','lite']),
-        'status' => $faker->randomElement(['normal', 'inactive','deleted']),
+        'status' => 'normal',
         'dtpub' => $faker->dateTimeBetween('-1 year'),
         'rubric_id' => rand(1,50),
         'region_id' => 0,

@@ -15,10 +15,10 @@ class CachingPublicationRepository implements PublicationRepository
         $this->cache = $cache;
     }
 
-    public function getNewsTopnews()
+    public function getNewsTopnews(int $list_id)
     {
-        $res = $this->cache->tags(['publications', 'topnews'])->rememberForever('publication.topnews.'.md5(serialize(func_get_args())).'.'.app()->getLocale(), function() {
-            return $this->repository->getNewsTopnews();
+        $res = $this->cache->tags(['publications', 'topnews'])->rememberForever('publication.topnews.'.md5(serialize(func_get_args())).'.'.app()->getLocale(), function() use ($list_id) {
+            return $this->repository->getNewsTopnews($list_id);
         });
         return $res;
     }
