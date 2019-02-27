@@ -9,8 +9,7 @@ class IndexController extends Controller
 {
     public function index() {
 
-        $cache = new \Memcached();
-        $cache->addServer('localhost', '11211');
+        //\Cache::tags('rubrics')->flush();
 
         return view('main');
     }

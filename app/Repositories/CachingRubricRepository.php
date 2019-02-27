@@ -17,7 +17,7 @@ class CachingRubricRepository implements RubricRepository
 
     public function getRubricDict()
     {
-        $res = $this->cache->remember('rubrics.dict.'.app()->getLocale(), 30, function() {
+        $res = $this->cache->tags('rubrics')->remember('rubrics.dict.'.app()->getLocale(), 30, function() {
             return $this->repository->getRubricDict();
         });
         return $res;
