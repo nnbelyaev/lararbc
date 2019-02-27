@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+use App\Helpers\DataHelper;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\DbRubricRepository;
+use App\Repositories\DbPublicationRepository;
 use App\Repositories\CachingRubricRepository;
+use App\Repositories\CachingPublicationRepository;
 use Illuminate\Database\Eloquent;
 
 class DatabaseServiceProvider extends ServiceProvider
@@ -22,6 +25,15 @@ class DatabaseServiceProvider extends ServiceProvider
                 $this->app['cache.store']
             );
         });
+        $this->app->singleton('PublicationRepository', function () {
+            return new CachingPublicationRepository(
+                new DbPublicationRepository,
+                $this->app['cache.store']
+            );
+        });
+        $this->app->singleton('DataHelper', function () {
+            return new DataHelper();
+        });
     }
 
     /**
@@ -32,13 +44,14 @@ class DatabaseServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['view']->composer('*', function ($view) {
+            $view->with('bannerKeywords', $this->app->get('DataHelper')->getBannerKeywords());
             $view->with('lang', \App::getLocale());
         });
         $this->composeRubricCollection();
     }
 
     private function composeRubricCollection() {
-        view()->composer('main', function($view) {
+        $this->app['view']->composer('*', function($view) {
             $view->with('rubricsDict', $this->getRubricsDict());
         });
     }

@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 
 class Publication extends Model
 {
+    const LIST_TOP_PORTAL = 1000000;
+
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = ['prefix','heading','lead','imagealt','text','title', 'title_extra','keywords','description'];
