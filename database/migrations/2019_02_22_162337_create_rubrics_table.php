@@ -17,7 +17,7 @@ class CreateRubricsTable extends Migration
             $table->increments('id');
             $table->enum('status', ['normal', 'inactive', 'deleted'])->default('normal');
             $table->enum('category', ['news', 'styler', 'afisha', 'lite', 'all'])->default('news');
-            $table->string('translit', 196)->unique();
+            $table->string('slug', 196)->unique();
             $table->string('google_news', 255)->default('');
             $table->enum('banner_zone', ['other', 'business'])->default('other');
             $table->boolean('subdomain')->default(false);

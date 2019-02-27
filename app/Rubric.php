@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class Rubric extends Model
@@ -16,12 +17,21 @@ class Rubric extends Model
         parent::boot();
 
         static::creating(function ($rubric) {
-            $rubric->translit = Str::slug($rubric->name);
+            $rubric->slug = Str::slug($rubric->name);
+        });
+        static::created(function ($rubric) {
+            Cache::tags('rubrics')->flush();
+        });
+        static::updated(function ($rubric) {
+            Cache::tags('rubrics')->flush();
+        });
+        static::deleted(function ($rubric) {
+            Cache::tags('rubrics')->flush();
         });
     }
 
     public function getRouteKeyName()
     {
-        return 'translit';
+        return 'slug';
     }
 }
