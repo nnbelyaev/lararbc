@@ -89,6 +89,6 @@ class Kernel extends HttpKernel
     {
         parent::terminate($request, $response);
 
-        \Log::info('EXECUTION TIME', [microtime(true) - LARAVEL_START]);
+        \Log::info('TOTAL TIME', [microtime(true) - LARAVEL_START]);
     }
 }
