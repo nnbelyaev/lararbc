@@ -22,4 +22,13 @@ class CachingPublicationRepository implements PublicationRepository
         });
         return $res;
     }
+
+    public function getFeedLast(int $list_id, int $limit)
+    {
+        $res = $this->cache->tags(['publications', 'feeds'])->rememberForever('publication.feeds.'.md5(serialize(func_get_args())).'.'.app()->getLocale(), function() use ($list_id, $limit) {
+            return collect();
+        });
+        return $res;
+
+    }
 }

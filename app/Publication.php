@@ -8,9 +8,16 @@ use Illuminate\Support\Str;
 
 class Publication extends Model
 {
-    const LIST_TOP_PORTAL = 1000000;
-
     use \Dimsav\Translatable\Translatable;
+
+    const LIST_TOP_PORTAL = 1000000;
+    const TOP_DAILY_PORTAL = 1000002;
+    const TOP_LITE_PORTAL = 1000003;
+    const TOP_STYLER_PORTAL = 1000004;
+    const TOP_VIDEO_PORTAL = 1000005;
+    const TOP_NEWS_OBZOR = 1000006;
+
+    const FEED_NEWS = 1000000;
 
     public $translatedAttributes = ['prefix','heading','lead','imagealt','text','title', 'title_extra','keywords','description'];
     protected $fillable = ['type','office','status','dtpub','dtend','rubric_id','region_id','story_id','ukrnet_id','bold',

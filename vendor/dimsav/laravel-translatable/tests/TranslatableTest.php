@@ -217,11 +217,9 @@ class TranslatableTest extends TestsBase
         $this->assertEquals('Belgique', $country->translate('fr')->name);
     }
 
-    /**
-     * @expectedException Illuminate\Database\Eloquent\MassAssignmentException
-     */
     public function test_it_skips_mass_assignment_if_attributes_non_fillable()
     {
+        $this->expectException(Illuminate\Database\Eloquent\MassAssignmentException::class);
         $data = [
             'code' => 'be',
             'en'   => ['name' => 'Belgium'],
@@ -376,11 +374,10 @@ class TranslatableTest extends TestsBase
         $this->assertSame($country->getTranslation('en'), null);
     }
 
-    /**
-     * @expectedException Dimsav\Translatable\Exception\LocalesNotDefinedException
-     */
     public function test_if_locales_are_not_defined_throw_exception()
     {
+        $this->expectException(Dimsav\Translatable\Exception\LocalesNotDefinedException::class);
+
         $this->app->config->set('translatable.locales', []);
         new Country(['code' => 'pl']);
     }
@@ -709,6 +706,8 @@ class TranslatableTest extends TestsBase
 
     public function test_translation_with_multiconnection()
     {
+        $this->migrate('mysql2');
+
         // Add country & translation in second db
         $country = new Country();
         $country->setConnection('mysql2');
@@ -721,18 +720,20 @@ class TranslatableTest extends TestsBase
         // Verify added country & translation in second db
         $country = new Country();
         $country->setConnection('mysql2');
-        $sgCountry = $country->find($countryId);
-        $this->assertEquals('Singapore', $sgCountry->translate('sg')->name);
+        $sgCountry2 = $country->newQuery()->find($countryId);
+        $this->assertEquals('Singapore', $sgCountry2->translate('sg')->name);
 
         // Verify added country not in default db
         $country = new Country();
-        $sgCountry = $country::where('code', 'sg')->get();
-        $this->assertEmpty($sgCountry);
+        $country->setConnection('mysql');
+        $sgCountry1 = $country->newQuery()->where('code', 'sg')->get();
+        $this->assertEmpty($sgCountry1);
 
         // Verify added translation not in default db
         $country = new Country();
-        $sgCountry = $country->find($countryId);
-        $this->assertEmpty($sgCountry->translate('sg'));
+        $country->setConnection('mysql');
+        $sgCountry1 = $country->newQuery()->find($countryId);
+        $this->assertEmpty($sgCountry1->translate('sg'));
     }
 
     public function test_empty_translated_attribute()

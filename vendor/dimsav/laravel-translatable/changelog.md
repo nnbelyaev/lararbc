@@ -1,5 +1,11 @@
 # Changelog
 
+## v9.4.0
+- add Laravel 5.8 support [#550](https://github.com/dimsav/laravel-translatable/pull/550) & [#556](https://github.com/dimsav/laravel-translatable/pull/556)
+
+## v9.3.0
+- Fix n+1 queries when updating non-translated model attributes [#533](https://github.com/dimsav/laravel-translatable/pull/533)
+
 ## v9.2.0
 - Add support for Laravel 5.7 [#518](https://github.com/dimsav/laravel-translatable/pull/518)
 
