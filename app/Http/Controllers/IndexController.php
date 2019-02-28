@@ -19,6 +19,7 @@ class IndexController extends Controller
         $reviewTopnews = app()->get('PublicationRepository')->getNewsTopnews(Publication::TOP_NEWS_OBZOR);
 
         $newsFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 120);
+        // ToDo real feed for company, sport, lite
         $companyFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 7);
         $sportFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 5);
         $liteFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 16);
