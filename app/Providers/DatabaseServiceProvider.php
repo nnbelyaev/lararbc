@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Helpers\DataHelper;
+use App\Repositories\CachingAuthorRepository;
+use App\Repositories\DbAuthorRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\DbRubricRepository;
 use App\Repositories\DbPublicationRepository;
@@ -28,6 +30,12 @@ class DatabaseServiceProvider extends ServiceProvider
         $this->app->singleton('PublicationRepository', function () {
             return new CachingPublicationRepository(
                 new DbPublicationRepository,
+                $this->app['cache.store']
+            );
+        });
+        $this->app->singleton('AuthorRepository', function () {
+            return new CachingAuthorRepository(
+                new DbAuthorRepository,
                 $this->app['cache.store']
             );
         });

@@ -16,7 +16,7 @@ class PublicationFeedsSeeder extends Seeder
                 if ($r % 2 == 0 && $p % 2 == 0) continue;
                 if ($r % 2 != 0 && $p % 2 != 0) continue;
                 $relation = new \App\PublicationFeeds();
-                $relation->rubric_id = $r;
+                $relation->feed_id = $r;
                 $relation->publication_id = $p;
                 $relation->save();
             }

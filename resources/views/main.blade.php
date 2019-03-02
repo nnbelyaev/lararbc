@@ -100,3 +100,15 @@ $newsFeed test<br/>
 @endforelse
 
 <br/><br/>
+
+
+$dailyTopAuthors test<br/>
+
+@forelse($dailyTopAuthors as $author)
+    <li>{{ $author->name }} [{{ $author->regalia }}]</li>
+@empty
+    empty
+@endforelse
+
+<br/><br/>
+

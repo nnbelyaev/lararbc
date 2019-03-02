@@ -6,7 +6,7 @@ interface PublicationRepository {
 
     public function getNewsTopnews(int $list_id);
 
-    public function getFeedLast(int $list_id, int $limit);
+    public function getFeedLast(int $feed_id, int $limit);
 
 }
 

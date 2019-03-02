@@ -17,7 +17,7 @@ class PublicationFeedsSpecSeeder extends Seeder
 
         foreach ($numbers as $number) {
             $relation = new \App\PublicationFeeds();
-            $relation->rubric_id = \App\Publication::FEED_NEWS;
+            $relation->feed_id = \App\Publication::FEED_NEWS;
             $relation->publication_id = $number;
             $relation->save();
         }
@@ -28,7 +28,7 @@ class PublicationFeedsSpecSeeder extends Seeder
 
         foreach ($numbers as $number) {
             $relation = new \App\PublicationFeeds();
-            $relation->rubric_id = \App\Publication::FEED_LITE;
+            $relation->feed_id = \App\Publication::FEED_LITE;
             $relation->publication_id = $number;
             $relation->save();
         }
@@ -39,7 +39,7 @@ class PublicationFeedsSpecSeeder extends Seeder
 
         foreach ($numbers as $number) {
             $relation = new \App\PublicationFeeds();
-            $relation->rubric_id = \App\Publication::FEED_STYLER;
+            $relation->feed_id = \App\Publication::FEED_STYLER;
             $relation->publication_id = $number;
             $relation->save();
         }

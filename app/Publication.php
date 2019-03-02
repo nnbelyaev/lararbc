@@ -19,7 +19,7 @@ class Publication extends Model
 
     const FEED_NEWS = 1000000;
     const FEED_LITE = 1000001;
-    const FEED_STYLER = 1000001;
+    const FEED_STYLER = 1000002;
 
     public $translatedAttributes = ['prefix','heading','lead','imagealt','text','title', 'title_extra','keywords','description'];
     protected $fillable = ['type','office','status','dtpub','dtend','rubric_id','region_id','story_id','ukrnet_id','bold',

@@ -501,6 +501,8 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
     );
 
     public static $classMap = array (
+        'App\\Author' => __DIR__ . '/../..' . '/app/Author.php',
+        'App\\AuthorTranslation' => __DIR__ . '/../..' . '/app/AuthorTranslation.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Helpers\\DataHelper' => __DIR__ . '/../..' . '/app/Helpers/DataHelper.php',
@@ -541,6 +543,7 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         'App\\Rubric' => __DIR__ . '/../..' . '/app/Rubric.php',
         'App\\RubricTranslation' => __DIR__ . '/../..' . '/app/RubricTranslation.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'AuthorSeeder' => __DIR__ . '/../..' . '/database/seeds/AuthorSeeder.php',
         'Barryvdh\\LaravelIdeHelper\\Alias' => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src/Alias.php',
         'Barryvdh\\LaravelIdeHelper\\Console\\EloquentCommand' => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src/Console/EloquentCommand.php',
         'Barryvdh\\LaravelIdeHelper\\Console\\GeneratorCommand' => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src/Console/GeneratorCommand.php',

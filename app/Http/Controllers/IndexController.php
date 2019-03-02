@@ -19,13 +19,11 @@ class IndexController extends Controller
         $reviewTopnews = app()->get('PublicationRepository')->getNewsTopnews(Publication::TOP_NEWS_OBZOR);
 
         $newsFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 120);
-        // ToDo real feed for company, sport, lite
-        $companyFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 7);
-        $sportFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 5);
-        $liteFeed = app()->get('PublicationRepository')->getFeedLast(Publication::FEED_NEWS, 16);
+        $companyFeed = app()->get('PublicationRepository')->getFeedLast(1, 7);
+        $sportFeed = app()->get('PublicationRepository')->getFeedLast(2, 5);
+        $liteFeed = app()->get('PublicationRepository')->getFeedLast(3, 16);
 
-        // ToDo Daily Top Authors
-        //$dailyTopAuthors
+        $dailyTopAuthors = app()->get('AuthorRepository')->getDailyTop();
 
         return view('main', [
             'bodyClass' => 'home-page',
@@ -40,6 +38,7 @@ class IndexController extends Controller
             'companyFeed' => $companyFeed,
             'sportFeed' => $sportFeed,
             'liteFeed' => $liteFeed,
+            'dailyTopAuthors' => $dailyTopAuthors,
         ]);
     }
 

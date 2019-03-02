@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Author' => $baseDir . '/app/Author.php',
+    'App\\AuthorTranslation' => $baseDir . '/app/AuthorTranslation.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Helpers\\DataHelper' => $baseDir . '/app/Helpers/DataHelper.php',
@@ -46,6 +48,7 @@ return array(
     'App\\Rubric' => $baseDir . '/app/Rubric.php',
     'App\\RubricTranslation' => $baseDir . '/app/RubricTranslation.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'AuthorSeeder' => $baseDir . '/database/seeds/AuthorSeeder.php',
     'Barryvdh\\LaravelIdeHelper\\Alias' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Alias.php',
     'Barryvdh\\LaravelIdeHelper\\Console\\EloquentCommand' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Console/EloquentCommand.php',
     'Barryvdh\\LaravelIdeHelper\\Console\\GeneratorCommand' => $vendorDir . '/barryvdh/laravel-ide-helper/src/Console/GeneratorCommand.php',
