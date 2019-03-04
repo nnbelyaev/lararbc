@@ -89,6 +89,10 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
+        'K' => 
+        array (
+            'KgBot\\LaravelLocalization\\' => 26,
+        ),
         'J' => 
         array (
             'JsonSchema\\' => 11,
@@ -282,6 +286,10 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         'Laravel\\Tinker\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
+        ),
+        'KgBot\\LaravelLocalization\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src',
         ),
         'JsonSchema\\' => 
         array (
@@ -2586,6 +2594,12 @@ class ComposerStaticInit2a6b15d049d174dd3b83a090975d3277
         'JsonSchema\\Uri\\UriResolver' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Uri/UriResolver.php',
         'JsonSchema\\Uri\\UriRetriever' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Uri/UriRetriever.php',
         'JsonSchema\\Validator' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Validator.php',
+        'KgBot\\LaravelLocalization\\Classes\\ExportLocalizations' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/Classes/ExportLocalizations.php',
+        'KgBot\\LaravelLocalization\\Console\\Commands\\ExportMessages' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/Console/Commands/ExportMessages.php',
+        'KgBot\\LaravelLocalization\\Console\\Commands\\ExportMessagesToFlat' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/Console/Commands/ExportMessagesToFlat.php',
+        'KgBot\\LaravelLocalization\\Events\\LaravelLocalizationExported' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/Events/LaravelLocalizationExported.php',
+        'KgBot\\LaravelLocalization\\Facades\\ExportLocalizations' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/Facades/ExportLocalizations.php',
+        'KgBot\\LaravelLocalization\\LaravelLocalizationServiceProvider' => __DIR__ . '/..' . '/kg-bot/laravel-localization-to-vue/src/LaravelLocalizationServiceProvider.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',

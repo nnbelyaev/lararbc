@@ -13,6 +13,7 @@
         "dimsav/laravel-translatable": "^9.3",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+        "kg-bot/laravel-localization-to-vue": "^1.6",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "mcamara/laravel-localization": "^1.3"

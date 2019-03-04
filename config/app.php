@@ -167,6 +167,7 @@ return [
          */
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,7 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-
+        'ExportLocalization' => KgBot\LaravelLocalization\Facades\ExportLocalizations::class
     ],
 
 ];

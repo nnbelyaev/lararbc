@@ -1,12 +1,18 @@
+/*
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
+*/
 
-// Bootstrap
 @import '~bulma/bulma';
+
+.is-300px {
+  background: tomato;
+  flex: 0 0 300px;
+}
 
 .navbar-laravel {
   background-color: #fff;

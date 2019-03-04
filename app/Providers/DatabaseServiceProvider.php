@@ -11,6 +11,7 @@ use App\Repositories\DbPublicationRepository;
 use App\Repositories\CachingRubricRepository;
 use App\Repositories\CachingPublicationRepository;
 use Illuminate\Database\Eloquent;
+use ExportLocalization;
 
 class DatabaseServiceProvider extends ServiceProvider
 {
@@ -52,18 +53,9 @@ class DatabaseServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['view']->composer('*', function ($view) {
-            $view->with('bannerKeywords', $this->app->get('DataHelper')->getBannerKeywords());
+            $view->with('dataHelper', $this->app->get('DataHelper'));
             $view->with('lang', \App::getLocale());
+            $view->with('messages', ExportLocalization::export()->toFlat());
         });
-        $this->composeRubricCollection();
-    }
-
-    private function composeRubricCollection() {
-        $this->app['view']->composer('*', function($view) {
-            $view->with('rubricsDict', $this->getRubricsDict());
-        });
-    }
-    public function getRubricsDict() {
-        return $this->app->get('RubricRepository')->getRubricDict();
     }
 }

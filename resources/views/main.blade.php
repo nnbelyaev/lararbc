@@ -1,6 +1,25 @@
 @extends('layouts.layout')
 
-bannerkeywords test - {{ $bannerKeywords }}
+@section('leftsidebar')
+    <h3 class="widget-heading"><a href="{{ route('news') }}">{{ __('general.news') }} </a></h3>
+    <div class="news-feed">
+        @forelse($newsFeed as $publication)
+            <div class="news-feed-item">
+                <a href="{{ $dataHelper->wrPublicationUrl($publication) }}">
+                    <span class="time">12:10</span>
+                    {{ $publication->heading }}
+                </a>
+            </div>
+        @empty
+            empty
+        @endforelse
+        <a href="{{ route('news.all') }}">{{ __('general.all news') }} </a>
+    </div>
+@endsection
+
+@section('content')
+
+bannerkeywords test - {{ $dataHelper->getBannerKeywords() }}
 <br/><br/>
 
 portalTopnews test<br/>
@@ -91,15 +110,7 @@ $companyFeed test<br/>
 
 <br/><br/>
 
-$newsFeed test<br/>
 
-@forelse($newsFeed as $publication)
-    <li>{{ $publication->heading }}</li>
-@empty
-    empty
-@endforelse
-
-<br/><br/>
 
 
 $dailyTopAuthors test<br/>
@@ -112,3 +123,5 @@ $dailyTopAuthors test<br/>
 
 <br/><br/>
 
+
+@endsection
